@@ -1,6 +1,4 @@
-# DevAPI
-
-# Projet API
+# DevAPI - Projet API
 
 
 Membres :
