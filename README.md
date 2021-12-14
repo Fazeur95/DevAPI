@@ -1,6 +1,10 @@
 # DevAPI
-Projet API
 
-GOMES VITORINO Marvin
+# Projet API
 
-MZEBLA Faouizi
+
+Membres :
+
+- GOMES VITORINO Marvin
+
+- MZEBLA Faouizi
