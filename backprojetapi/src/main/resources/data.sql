@@ -10,25 +10,29 @@ CREATE TABLE articles (
   article_id INT AUTO_INCREMENT PRIMARY KEY,
   title VARCHAR(250) NOT NULL,
   content TEXT NOT NULL,
+  date DATE NOT NULL,
   id_author INT NOT NULL
 );
 
 INSERT INTO
-  articles (title, content, id_author)
+  articles (title, content,date, id_author)
 VALUES
   (
     'Mbappé, le PSG y croit toujours',
     'Sous contrat avec le PSG ...',
+    '2019-06-26',
     1
   ),
   (
     'Épiphanie 2022 : les meilleures brioches et galettes des Rois',
     'Après les bûches de Noël et autres gourmandises...',
+    '2019-06-26',
     2
   ),
   (
     'Ces doudounes qui donnent de l''allure',
     'La doudoune bien choisie ne nous donne pas des allures de Bibendum...',
+    '2019-06-26',
     1
   );
 

@@ -1,5 +1,6 @@
 package com.backprojetapi.model;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,6 +16,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 @Table(name = "articles")
 public class Article {
@@ -24,6 +27,8 @@ public class Article {
 	private Integer article_id;
 	private String title;
 	private String content;
+	@JsonFormat(pattern="dd-MM-yyyy")
+	private Date date;
 	private Integer id_author;
 	public Integer getArticle_id() {
 		return article_id;
@@ -48,6 +53,12 @@ public class Article {
 	}
 	public void setId_author(Integer id_author) {
 		this.id_author = id_author;
+	}
+	public Date getDate() {
+		return date;
+	}
+	public void setDate(Date date) {
+		this.date = date;
 	}
 	
 	
