@@ -24,4 +24,8 @@ public class ArticleService {
 	public Optional<Article> getArticle(Integer id) {
 		return articleRepository.findById(id);
 	}
+	
+	public void deleteArticle(Integer id) {
+		articleRepository.deleteById(id);
+	}
 }
