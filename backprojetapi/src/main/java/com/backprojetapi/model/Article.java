@@ -3,8 +3,10 @@ package com.backprojetapi.model;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -17,6 +19,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "articles")
@@ -24,18 +27,16 @@ public class Article {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer article_id;
+	@Column(name = "article_id")
+	private Integer id;
 	private String title;
 	private String content;
 	@JsonFormat(pattern="dd-MM-yyyy")
 	private Date date;
 	private Integer id_author;
-	public Integer getArticle_id() {
-		return article_id;
-	}
-	public void setArticle_id(Integer article_id) {
-		this.article_id = article_id;
-	}
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "article")
+    private List<Comment> comments = new ArrayList<>();
+	
 	public String getTitle() {
 		return title;
 	}
@@ -44,6 +45,12 @@ public class Article {
 	}
 	public String getContent() {
 		return content;
+	}
+	public List<Comment> getComments() {
+		return comments;
+	}
+	public void setComments(List<Comment> comments) {
+		this.comments = comments;
 	}
 	public void setContent(String content) {
 		this.content = content;

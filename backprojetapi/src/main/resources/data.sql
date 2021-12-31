@@ -37,17 +37,19 @@ VALUES
   );
 
 CREATE TABLE comments (
-  id INT AUTO_INCREMENT PRIMARY KEY,
+  comment_id INT AUTO_INCREMENT PRIMARY KEY,
   content VARCHAR(250) NOT NULL,
-  id_article INT(250)
+  author INT NOT NULL,
+  date DATE NOT NULL,
+  article_id INT(250)
 );
 
 INSERT INTO
-  comments (content, id_article)
+  comments (content, author, date, article_id)
 VALUES
-  ('trop bien', 1),
-  ('trop cool', 1),
-  ('useless', 3);
+  ('trop bien', 1, '2021-12-31', 1),
+  ('trop cool', 1, '2021-12-31', 1),
+  ('useless', 1, '2021-12-31', 3);
 
 CREATE TABLE categories (
   category_id INT AUTO_INCREMENT PRIMARY KEY,
