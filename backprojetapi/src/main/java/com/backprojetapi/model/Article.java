@@ -37,6 +37,11 @@ public class Article {
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "article")
     private List<Comment> comments = new ArrayList<>();
 	
+	@ManyToMany(
+			mappedBy = "articles"
+			)
+	private List<Category> categories = new ArrayList<>();
+	
 	public String getTitle() {
 		return title;
 	}
@@ -67,6 +72,19 @@ public class Article {
 	public void setDate(Date date) {
 		this.date = date;
 	}
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	public List<Category> getCategories() {
+		return categories;
+	}
+	public void setCategories(List<Category> categories) {
+		this.categories = categories;
+	}
+	
 	
 	
 	
