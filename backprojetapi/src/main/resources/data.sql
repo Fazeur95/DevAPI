@@ -10,7 +10,7 @@ CREATE TABLE articles (
   article_id INT AUTO_INCREMENT PRIMARY KEY,
   title VARCHAR(250) NOT NULL,
   content TEXT NOT NULL,
-  date DATE NOT NULL,
+  date VARCHAR(250) NOT NULL,
   id_author INT NOT NULL
 );
 
@@ -19,19 +19,19 @@ INSERT INTO
 VALUES
   (
     'Mbappé, le PSG y croit toujours',
-    'Sous contrat avec le PSG ...',
+    'C''est un feuilleton qui n''en finit pas. Déjà au cœur des rumeurs l''été dernier, Kylian Mbappé n''a toujours pas prolongé son contrat au PSG qui s''achève le 30 juin. Par conséquent, il est libre de discuter avec le club de son choix depuis le 1er janvier en vue d''une arrivée l''été prochain. Mais comme ce feuilleton n''en est pas à son premier rebondissement, l''agent italien Giovanni Branchini a révélé dans les colonnes de La Gazzetta dello Sport que « ces jours-ci, le Real Madrid est revenu à la charge pour obtenir Mbappé immédiatement et a offert 50 millions d''euros. »',
     '2019-06-26',
     1
   ),
   (
     'Épiphanie 2022 : les meilleures brioches et galettes des Rois',
-    'Après les bûches de Noël et autres gourmandises...',
+    'Après les bûches de Noël et autres gourmandises, vient le tour de la traditionnelle période des galettes des Rois. Si tous les ans, les pâtissiers redoublent de créativité pour surprendre nos papilles, 2022 n’échappe pas à la règle. Acidulée, fruitée ou chocolatée, chacun y va de sa particularité. Cyril Lignac opte pour une brioche des Rois à la fleur d’oranger, aux oranges confites, avec pistaches et noisettes. Lenôtre rejoint cette idée de brioche fruitée en ajoutant une crème de citron et un confit de mandarine. Mais la nuance avec une touche de soleil tout droit venu d’Aix-en-Provence avec sa pâte façon calisson.',
     '2019-06-26',
     2
   ),
   (
     'Ces doudounes qui donnent de l''allure',
-    'La doudoune bien choisie ne nous donne pas des allures de Bibendum...',
+    'La doudoune bien choisie ne nous donne pas des allures de Bibendum. Au contraire, elle peut nous ériger en reine du style tout en nous préservant du froid. Une valeur sûre pour laquelle on signe tout de suite. Cette année, pas de grands changements en vue si ce n''est que l''on ose un peu plus la couleur. En revanche, longue ou courte, c''est à votre guise. Il ne vous reste plus qu''à choisir votre modèle sur le site de LUISAVIAROMA. En attendant, voici notre sélection de pièces coup de cœur et nos astuces pour bien les porter.',
     '2019-06-26',
     1
   );

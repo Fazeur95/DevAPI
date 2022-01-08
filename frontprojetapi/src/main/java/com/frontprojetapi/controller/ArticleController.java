@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import com.frontprojetapi.model.Article;
 import com.frontprojetapi.service.ArticleService;
@@ -18,9 +19,16 @@ public class ArticleController {
 	private ArticleService articleService;
 	
 	@GetMapping("/articles")
-	public String productsPage(Model model) {
+	public String articlesPage(Model model) {
 		List<Article> articles = articleService.getArticles();
 		model.addAttribute("articles", articles);
 		return "articles";
+	}
+	
+	@GetMapping("/articles/{id}")
+	public String articleDetail(Model model, @PathVariable(name = "id")Integer id) {
+		Article article = articleService.getArticleById(id);
+		model.addAttribute("article", article);
+		return "article";
 	}
 }

@@ -13,7 +13,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 import com.frontprojetapi.model.Article;
-
 @Component
 public class ArticleProxy {
 	public List<Article> getArticles() {
@@ -26,6 +25,22 @@ public class ArticleProxy {
 
 		ResponseEntity<List<Article>> response = restTemplate.exchange("http://localhost:8000/articles", HttpMethod.GET, entity, new ParameterizedTypeReference<List<Article>>() {
 				});
+		return response.getBody();
+	}
+	
+	public Article getArticleById(Integer id) {
+		RestTemplate restTemplate = new RestTemplate();
+		
+		HttpHeaders headers = new HttpHeaders();
+	    headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
+	    HttpEntity<String> entity = new HttpEntity<String>(headers);
+		
+		ResponseEntity<Article> response =
+				restTemplate.exchange(
+						"http://localhost:8000" + "/articles/" + id, 
+						HttpMethod.GET, 
+						entity, 
+						Article.class);
 		return response.getBody();
 	}
 }

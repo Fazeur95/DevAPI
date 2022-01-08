@@ -16,4 +16,8 @@ public class ArticleService {
 	public List<Article> getArticles(){
 		return articleProxy.getArticles();
 	}
+	
+	public Article getArticleById(Integer id) {
+		return articleProxy.getArticleById(id);
+	}
 }
