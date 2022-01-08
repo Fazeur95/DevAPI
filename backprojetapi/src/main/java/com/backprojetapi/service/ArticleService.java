@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.backprojetapi.model.Article;
+import com.backprojetapi.model.Comment;
 import com.backprojetapi.repository.ArticleRepository;
 
 @Service
@@ -27,5 +28,10 @@ public class ArticleService {
 	
 	public void deleteArticle(Integer id) {
 		articleRepository.deleteById(id);
+	}
+	
+	public Article addComment(Article article, Comment comment) {
+		article.getComments().add(comment);
+		return articleRepository.save(article);
 	}
 }

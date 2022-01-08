@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.backprojetapi.model.Article;
+import com.backprojetapi.model.Comment;
 import com.backprojetapi.service.ArticleService;
 
 @RestController
