@@ -25,7 +25,7 @@ public class Comment {
 	private Integer id;
 	private String content;
 	private String author;
-	@JsonFormat(pattern="dd/MM/yyyy")
+	@JsonFormat(pattern="yyyy-MM-dd")
 	private Date date;
 	@JsonIgnore
 	@ManyToOne()

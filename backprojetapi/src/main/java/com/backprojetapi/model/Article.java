@@ -31,7 +31,7 @@ public class Article {
 	private Integer id;
 	private String title;
 	private String content;
-	@JsonFormat(pattern="dd-MM-yyyy")
+	@JsonFormat(pattern="yyyy-MM-dd")
 	private Date date;
 	private Integer id_author;
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "article")
