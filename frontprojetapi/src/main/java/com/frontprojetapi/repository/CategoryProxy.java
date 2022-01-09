@@ -12,11 +12,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
-import com.frontprojetapi.model.Article;
+import com.frontprojetapi.model.Category;
 
 @Component
-public class ArticleProxy {
-	public List<Article> getArticles() {
+public class CategoryProxy {
+	public List<Category> getCategories() {
 
 		RestTemplate restTemplate = new RestTemplate();
 
@@ -24,29 +24,24 @@ public class ArticleProxy {
 		headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
 		HttpEntity<String> entity = new HttpEntity<String>(headers);
 
-		ResponseEntity<List<Article>> response = restTemplate.exchange("http://localhost:8000/articles", HttpMethod.GET,
-				entity, new ParameterizedTypeReference<List<Article>>() {
+		ResponseEntity<List<Category>> response = restTemplate.exchange("http://localhost:8000/categories",
+				HttpMethod.GET, entity, new ParameterizedTypeReference<List<Category>>() {
+				});
+		return response.getBody();
+	}
+	
+	public Category getCategoryById(Integer id) {
+
+		RestTemplate restTemplate = new RestTemplate();
+
+		HttpHeaders headers = new HttpHeaders();
+		headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
+		HttpEntity<String> entity = new HttpEntity<String>(headers);
+
+		ResponseEntity<Category> response = restTemplate.exchange("http://localhost:8000/categories/" + id ,
+				HttpMethod.GET, entity, new ParameterizedTypeReference<Category>() {
 				});
 		return response.getBody();
 	}
 
-	public Article getArticleById(Integer id) {
-		RestTemplate restTemplate = new RestTemplate();
-
-		HttpHeaders headers = new HttpHeaders();
-		headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
-		HttpEntity<String> entity = new HttpEntity<String>(headers);
-
-		ResponseEntity<Article> response = restTemplate.exchange("http://localhost:8000" + "/articles/" + id,
-				HttpMethod.GET, entity, Article.class);
-		return response.getBody();
-	}
-
-	public void save(Article article) {
-		RestTemplate restTemplate = new RestTemplate();
-
-		HttpEntity<Article> request = new HttpEntity<Article>(article);
-
-		restTemplate.exchange("http://localhost:8000" + "/articles", HttpMethod.POST, request, Article.class);
-	}
 }

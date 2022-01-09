@@ -11,7 +11,7 @@ public class Article {
 	private String content;
 	@JsonFormat(pattern="yyyy-MM-dd")
 	private Date date;
-	private Integer id_author;
+	private String author;
 	private List<Comment> comments;
 	private List<Category> categories;
 
@@ -25,6 +25,14 @@ public class Article {
 
 	public String getTitle() {
 		return title;
+	}
+
+	public String getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(String author) {
+		this.author = author;
 	}
 
 	public void setTitle(String title) {
@@ -45,14 +53,6 @@ public class Article {
 
 	public void setDate(Date date) {
 		this.date = date;
-	}
-
-	public Integer getId_author() {
-		return id_author;
-	}
-
-	public void setId_author(Integer id_author) {
-		this.id_author = id_author;
 	}
 
 	public List<Comment> getComments() {

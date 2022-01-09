@@ -20,4 +20,8 @@ public class ArticleService {
 	public Article getArticleById(Integer id) {
 		return articleProxy.getArticleById(id);
 	}
+	
+	public void save(Article article) {
+		articleProxy.save(article);
+	}
 }

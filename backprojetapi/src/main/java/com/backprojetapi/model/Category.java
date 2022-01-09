@@ -27,7 +27,6 @@ public class Category {
 	private Integer category_id;
 	private String name;
 
-	@JsonIgnore // fix la récupération cyclique des éléments 
 	@ManyToMany(
 			fetch = FetchType.LAZY, // performance
 			cascade = { 

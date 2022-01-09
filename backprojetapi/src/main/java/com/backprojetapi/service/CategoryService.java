@@ -8,10 +8,18 @@ import com.backprojetapi.repository.CategoryRepository;
 
 @Service
 public class CategoryService {
-	@Autowired CategoryRepository categoryRepository;
-	
-	public Iterable<Category> getCategories(){
+	@Autowired
+	CategoryRepository categoryRepository;
+
+	public Iterable<Category> getCategories() {
 		return categoryRepository.findAll();
 	}
 
+	public Category getCategory(Integer id) {
+		return categoryRepository.findById(id).get();
+	}
+
+	public Category upsert(Category category) {
+		return categoryRepository.save(category);
+	}
 }

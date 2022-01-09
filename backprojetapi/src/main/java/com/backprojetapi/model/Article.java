@@ -31,63 +31,72 @@ public class Article {
 	private Integer id;
 	private String title;
 	private String content;
-	@JsonFormat(pattern="yyyy-MM-dd")
+	@JsonFormat(pattern = "yyyy-MM-dd")
 	private Date date;
-	private Integer id_author;
+	private String author;
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "article")
-    private List<Comment> comments = new ArrayList<>();
-	
-	@ManyToMany(
-			mappedBy = "articles"
-			)
+	private List<Comment> comments = new ArrayList<>();
+
+	@JsonIgnore // fix la récupération cyclique des éléments
+	@ManyToMany(mappedBy = "articles")
 	private List<Category> categories = new ArrayList<>();
-	
+
 	public String getTitle() {
 		return title;
 	}
+
 	public void setTitle(String title) {
 		this.title = title;
 	}
+
+	public String getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+
 	public String getContent() {
 		return content;
 	}
+
 	public List<Comment> getComments() {
 		return comments;
 	}
+
 	public void setComments(List<Comment> comments) {
 		this.comments = comments;
 	}
+
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public Integer getId_author() {
-		return id_author;
-	}
-	public void setId_author(Integer id_author) {
-		this.id_author = id_author;
-	}
+
 	public Date getDate() {
 		return date;
 	}
+
 	public void setDate(Date date) {
 		this.date = date;
 	}
+
 	public Integer getId() {
 		return id;
 	}
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
+
 	public List<Category> getCategories() {
 		return categories;
 	}
+
 	public void setCategories(List<Category> categories) {
 		this.categories = categories;
 	}
-	
-	
-	
-	
+
 //	@OneToOne(
 //			cascade = CascadeType.ALL,
 //			fetch = FetchType.EAGER,
@@ -128,7 +137,5 @@ public class Article {
 //	public void setCategories(List<Category> categories) {
 //		this.categories = categories;
 //	}
-	
-	
 
 }
