@@ -39,7 +39,7 @@ VALUES
 CREATE TABLE comments (
   comment_id INT AUTO_INCREMENT PRIMARY KEY,
   content VARCHAR(250) NOT NULL,
-  author INT NOT NULL,
+  author VARCHAR(250) NOT NULL,
   date DATE NOT NULL,
   article_id INT(250)
 );
@@ -47,9 +47,9 @@ CREATE TABLE comments (
 INSERT INTO
   comments (content, author, date, article_id)
 VALUES
-  ('trop bien', 1, '2021-12-31', 1),
-  ('trop cool', 1, '2021-12-31', 1),
-  ('useless', 1, '2021-12-31', 3);
+  ('trop bien', 'Marvin GOMES VITORINO', '2021-12-31', 1),
+  ('trop cool', 'Marvin GOMES VITORINO', '2021-12-31', 1),
+  ('useless', 'Marvin GOMES VITORINO', '2021-12-31', 3);
 
 CREATE TABLE categories (
   category_id INT AUTO_INCREMENT PRIMARY KEY,

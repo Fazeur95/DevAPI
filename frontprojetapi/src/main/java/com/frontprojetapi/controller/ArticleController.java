@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.frontprojetapi.model.Article;
 import com.frontprojetapi.model.Category;
+import com.frontprojetapi.model.Comment;
 import com.frontprojetapi.service.ArticleService;
 import com.frontprojetapi.service.CategoryService;
 
@@ -20,26 +21,27 @@ import com.frontprojetapi.service.CategoryService;
 public class ArticleController {
 	@Autowired
 	private ArticleService articleService;
-	
+
 	@Autowired
 	private CategoryService categoryService;
-	
+
 	@GetMapping("/articles")
 	public String articlesPage(Model model) {
 		List<Article> articles = articleService.getArticles();
-		
+
 		model.addAttribute("articles", articles);
-		
+
 		return "articles";
 	}
-	
+
 	@GetMapping("/articles/{id}")
-	public String articleDetail(Model model, @PathVariable(name = "id")Integer id) {
+	public String articleDetail(Model model, @PathVariable(name = "id") Integer id) {
 		Article article = articleService.getArticleById(id);
 		model.addAttribute("article", article);
+		model.addAttribute("comment", new Comment());
 		return "article";
 	}
-	
+
 	@GetMapping("/articles/new")
 	public String newArticlePage(Model model) {
 		List<Category> categories = categoryService.getCategories();
@@ -47,7 +49,7 @@ public class ArticleController {
 		model.addAttribute("article", new Article());
 		return "newArticle";
 	}
-	
+
 	@PostMapping("/articles")
 	public ModelAndView createNewArticle(@ModelAttribute Article article) {
 		articleService.save(article);
